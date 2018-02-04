@@ -13,7 +13,7 @@ export type TextResponse = {
 };
 
 export type Question = {
-  id: string,
+  id: number,
   position: number,
   text: string
 };

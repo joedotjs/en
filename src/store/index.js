@@ -14,14 +14,22 @@ import type {
   UpdateJSONAction
 } from '../types';
 
-const initialState: State = {
-  inputError: null,
-  inputJSON: '[]',
-  questions: []
-};
-
 const stringifyQuestions = (questions: Questions): string =>
   JSON.stringify(questions, null, 4);
+
+const initialQuestions: Questions = [
+  {id: 1, position: 0, text: 'How would your country change if everyone, regardless of age, could vote?'},
+  {id: 2, position: 2, text: 'Where do you get your news?'},
+  {id: 3, position: 4, text: 'When was the last time you slept more than nine hours?'},
+  {id: 4, position: 3, text: 'What has been blown way out of proportion?'},
+  {id: 5, position: 1, text: 'Which way should toilet paper hang, over or under?'}
+];
+
+const initialState: State = {
+  inputError: null,
+  inputJSON: stringifyQuestions(initialQuestions),
+  questions: initialQuestions
+};
 
 const repositionOtherQuestions = (allQuestions: Questions, currentPosition, newPosition): Questions => {
     const questionMovingForward = newPosition > currentPosition;
