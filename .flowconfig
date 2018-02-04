@@ -1,0 +1,13 @@
+[include]
+./src
+
+[ignore]
+.*/node_modules/.*
+.*/build/.*
+
+[libs]
+flow-typed
+
+[options]
+suppress_comment=.*\\$FlowIssue.*
+
