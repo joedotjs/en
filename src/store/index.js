@@ -61,7 +61,6 @@ export const actionDictionary: ActionDictionary = { // Exported for ease of test
   },
 
   'REPOSITION_QUESTION': (newState, action: RepositionQuestionAction) => {
-
     const questionInTransit = newState.questions.find(q => q.id === action.questionId);
     if (!questionInTransit) return newState; // No question with given id. No-op.
 

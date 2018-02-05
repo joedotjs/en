@@ -7,8 +7,6 @@ type Props = {
 export default ({inputJSON, inputError}: Props) =>
 (
   <div>
-    <textarea>
-      {inputJSON}
-    </textarea>
+    <textarea onChange={() => {}} value={inputJSON}></textarea>
   </div>
 )
