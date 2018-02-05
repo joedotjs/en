@@ -1,7 +1,7 @@
 /* @flow */
 import React, {Component} from 'react';
 import type {Question, Questions} from '../types';
-import store from '../store';
+import store, {repositionQuestion} from '../store';
 
 import QuestionEntry from './question';
 
@@ -26,11 +26,9 @@ export default class QuestionsList extends Component<Props, State> {
 
   handleEndDrag = () => {
     if (!this.state.movingQuestion || !this.state.targetQuestion) return;
-    store.dispatch({
-      type: 'REPOSITION_QUESTION',
-      questionId: this.state.movingQuestion.id,
-      moveTo: this.state.targetQuestion.position
-    });
+    store.dispatch(
+      repositionQuestion(this.state.movingQuestion, this.state.targetQuestion.position)
+    );
     this.setState({
       movingQuestion: null,
       targetQuestion: null
@@ -55,7 +53,7 @@ export default class QuestionsList extends Component<Props, State> {
   render() {
     const {questions} = this.props;
     return (
-      <div>
+      <div id="question-list">
         {this.sortByPosition(questions).map(q =>
           <QuestionEntry
             key={q.id}

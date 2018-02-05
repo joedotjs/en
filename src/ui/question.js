@@ -25,11 +25,11 @@ export default class extends Component<Props> {
     const {isTarget, onDragEnd, question} = this.props;
     return (
       <div
+        className={`question${isTarget ? ' target' : ''}`}
         draggable="true"
         onDragEnd={onDragEnd}
         onDragOver={this.setSelfTarget}
-        onDragStart={this.setSelfMoving}
-        style={{background: isTarget ? 'red' : ''}}>
+        onDragStart={this.setSelfMoving}>
         <h4>{question.text}</h4>
         <input type="text"/>
       </div>

@@ -13,6 +13,10 @@ module.exports = () => {
     module: {
       loaders: [
         {
+          test: /scss$/,
+          loaders: ['style-loader', 'css-loader', 'sass-loader']
+        },
+        {
           test: /js$/,
           exclude: /(node_modules)/,
           loader: 'babel-loader'

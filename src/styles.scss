@@ -1,0 +1,38 @@
+body {
+  font-family: "Helvetica Neue";
+}
+
+#app-container {
+  display: flex;
+  justify-content: space-around;
+
+  & > * {
+    width: 45%;
+  }
+}
+
+#question-list {
+  h4 {
+    margin-bottom: 8px;
+  }
+  input {
+    width: 100%;
+  }
+}
+
+.question {
+  &.target {
+    background: rgba(93, 207, 255, 0.22);
+  }
+}
+
+#text-input {
+  textarea {
+    width: 100%;
+    height: 600px;
+    &.error {
+      border: 1px solid red;
+      outline: none;
+    }
+  }
+}

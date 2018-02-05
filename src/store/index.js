@@ -2,6 +2,7 @@
 import {createStore} from 'redux';
 
 import type {
+  Question,
   Questions,
   State
 } from '../types';
@@ -109,4 +110,15 @@ export default createStore((state: State = initialState, action) => {
     return actionDictionary[action.type]({...state}, action);
   }
   return state;
+});
+
+export const repositionQuestion = (questionToMove: Question, newPosition: number): RepositionQuestionAction => ({
+  type: 'REPOSITION_QUESTION',
+  questionId: questionToMove.id,
+  moveTo: newPosition
+});
+
+export const updateJSON = (newJSON: string): UpdateJSONAction => ({
+  type: 'UPDATE_INPUT_JSON',
+  newJSON
 });

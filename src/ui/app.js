@@ -16,6 +16,5 @@ const App = ({inputError, inputJSON, questions}: ReduxState) =>
     </div>
   );
 
-
 const mapStateToProps: MapStateToProps<*, *, *> = (state: ReduxState) => ({...state});
 export default connect(mapStateToProps)(App);
